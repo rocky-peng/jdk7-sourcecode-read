@@ -128,6 +128,8 @@ public class HashMap<K,V>
 
     /**
      * The default initial capacity - MUST be a power of two.
+     *
+     *
      */
     static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
 
@@ -144,17 +146,21 @@ public class HashMap<K,V>
     static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
     /**
-     * An empty table instance to share when the table is not inflated.
+     * An empty table instance to share when the table is not inflated（膨胀的）.
      */
     static final Entry<?,?>[] EMPTY_TABLE = {};
 
     /**
      * The table, resized as necessary. Length MUST Always be a power of two.
+     *
+     * 注意是数组的长度必须是2的幂
      */
     transient Entry<K,V>[] table = (Entry<K,V>[]) EMPTY_TABLE;
 
     /**
      * The number of key-value mappings contained in this map.
+     *
+     * 表中节点的个数
      */
     transient int size;
 
@@ -164,6 +170,7 @@ public class HashMap<K,V>
      */
     // If table == EMPTY_TABLE then this is the initial capacity at which the
     // table will be created when inflated.
+    //是指数组被占用的阈值
     int threshold;
 
     /**
@@ -179,6 +186,9 @@ public class HashMap<K,V>
      * the HashMap or otherwise modify its internal structure (e.g.,
      * rehash).  This field is used to make iterators on Collection-views of
      * the HashMap fail-fast.  (See ConcurrentModificationException).
+     *
+     *
+     * //这个字段不是很理解
      */
     transient int modCount;
 
